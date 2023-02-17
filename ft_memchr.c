@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 15:31:19 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/17 21:06:56 by aplotnyk         ###   ########.fr       */
+/*   Created: 2023/02/13 15:12:40 by aplotnyk          #+#    #+#             */
+/*   Updated: 2023/02/13 16:49:30 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+searches for the first occurrence of the character c (an unsigned char)
+in the first n bytes of the string pointed to, by the argument str.
+returns a pointer to the matching byte 
+or NULL if the character does not occur in the given memory area.
+*/
+
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*newdest;
-	char	*newsrc;
-	
-	if (!src && !dest)
-		return (NULL);
+	const char	*s;
+	size_t		i;
+
 	i = 0;
-	newdest = (char *)dest;
-	newsrc = (char *)src;
+	s = str;
+	while (c > 127)
+		c = c % 128;
 	while (i < n)
 	{
-		newdest[i] = newsrc[i];
+		if (s[i] == c)
+			return ((void *)&str[i]);
 		i++;
 	}
-	return ((void *)(dest));
+	return (NULL);
 }

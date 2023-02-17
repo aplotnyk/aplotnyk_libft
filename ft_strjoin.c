@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 17:36:35 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/17 21:08:45 by aplotnyk         ###   ########.fr       */
+/*   Created: 2023/02/14 16:21:45 by aplotnyk          #+#    #+#             */
+/*   Updated: 2023/02/14 16:53:54 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int a)
-{
-	if (a < 0 || a > 127)
-		return (0);
-	return (1);
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{	
+	char	*res;
+	int		i;
+
+	i = 0;
+	res = (char *) malloc (ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
+		return (NULL);
+	while (*s1)
+	{
+		res[i] = *s1;
+		i++;
+		s1++;
+	}
+	while (*s2)
+	{
+		res[i] = *s2;
+		i++;
+		s2++;
+	}
+	res[i] = '\0';
+	return (res);
 }

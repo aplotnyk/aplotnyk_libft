@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 17:37:22 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/17 21:20:19 by aplotnyk         ###   ########.fr       */
+/*   Created: 2023/02/13 20:27:43 by aplotnyk          #+#    #+#             */
+/*   Updated: 2023/02/14 12:59:47 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcat(char *dst, const char *src, size_t s)
+int	ft_atoi(char *str)
 {
-	size_t	i;
-	size_t	j;
-	size_t	result;
+	int	res;
+	int	sign;
+	int	i;
 
+	res = 0;
+	sign = 1;
 	i = 0;
-	j = 0;
-	if (s == 0)
-		return (0);
-	while (dst[i] && i < s)
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	{
 		i++;
-	while (src[j])
-		j++;
-	if (s > i)
-		result = i + j;
-	else
-		result = s + j;
-	j = 0;
-	while (src[j] && (i < s - 1) && s != 0)
-		dst[i++] = src[j++];
-	if (s > i)
-		dst[i] = '\0';
-	return (result);
+	}
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = sign * (-1);
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + str[i] - '0';
+		i++;
+	}	
+	return (res * sign);
 }

@@ -1,32 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 15:31:19 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/17 21:06:56 by aplotnyk         ###   ########.fr       */
+/*   Created: 2023/02/17 15:20:12 by aplotnyk          #+#    #+#             */
+/*   Updated: 2023/02/17 18:08:08 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+static int	len(int n)
 {
-	size_t	i;
-	char	*newdest;
-	char	*newsrc;
-	
-	if (!src && !dest)
-		return (NULL);
-	i = 0;
-	newdest = (char *)dest;
-	newsrc = (char *)src;
-	while (i < n)
+	int	l;
+
+	l = 0;
+	if (n <= 0)
+		l++;
+	while (n)
 	{
-		newdest[i] = newsrc[i];
-		i++;
+		n /= 10;
+		l++;
 	}
-	return ((void *)(dest));
+	return (l);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*str;
+	int			l;
+	long int	num;
+
+	l = len(n);
+	num = n;
+	str = malloc(sizeof(char) * (l + 1));
+	if (!str)
+		return (NULL);
+	str[l] = '\0';
+	if (num == 0)
+		str[0] = '0';
+	if (num < 0)
+	{
+		str[0] = '-';
+		num *= -1;
+	}
+	while (num > 0)
+	{
+		str[--l] = (num % 10) + '0';
+		num /= 10;
+	}
+	return (str);
 }

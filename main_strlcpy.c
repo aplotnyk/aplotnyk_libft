@@ -6,7 +6,7 @@
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 19:08:13 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/06 17:38:20 by aplotnyk         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:04:18 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "libft.h"
 #include "ft_strlcpy.c"
-#include <bsd/string.h>
+#include <string.h>
 
 int main()
 {
