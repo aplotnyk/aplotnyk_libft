@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 17:33:01 by aplotnyk          #+#    #+#             */
-/*   Updated: 2024/02/06 20:45:30 by aplotnyk         ###   ########.fr       */
+/*   Created: 2024/02/06 17:46:57 by aplotnyk          #+#    #+#             */
+/*   Updated: 2024/02/06 17:47:34 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+size_t	ft_strlen(const char *str)
 {
-	t_list	*lastnode;
+	size_t	i;
 
-	if (!*lst || !lst)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		*lst = new;
-		return ;
+		i++;
 	}
-	lastnode = ft_lstlast(*lst);
-	lastnode->next = new;
+	return (i);
 }

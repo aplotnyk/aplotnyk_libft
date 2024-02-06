@@ -6,7 +6,7 @@
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:25:39 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/22 16:42:28 by aplotnyk         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:46:35 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		temp = ft_lstnew(f(lst->content));
-		if(!temp)
+		if (!temp)
 		{
 			ft_lstclear(&start, del);
-			return(NULL);
+			return (NULL);
 		}
 		else
-			ft_lstadd_back(&start, temp); 
+			ft_lstadd_back(&start, temp);
 		lst = lst->next;
 	}
 	return (start);

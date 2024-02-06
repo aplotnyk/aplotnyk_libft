@@ -6,14 +6,14 @@
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:21:45 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/19 21:16:42 by aplotnyk         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:42:56 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
-{	
+{
 	char	*res;
 	int		i;
 

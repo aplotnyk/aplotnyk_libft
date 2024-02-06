@@ -6,7 +6,7 @@
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:12:40 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/13 16:49:30 by aplotnyk         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:50:38 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	*ft_memchr(const void *str, int c, size_t n)
 		c = c % 128;
 	while (i < n)
 	{
-		if (s[i] == c)
-			return ((void *)&str[i]);
+		if (*s == c)
+			return ((void *)s);
+		s++;
 		i++;
 	}
 	return (NULL);

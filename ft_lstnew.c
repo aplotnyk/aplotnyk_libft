@@ -6,7 +6,7 @@
 /*   By: aplotnyk <aplotnyk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 16:53:35 by aplotnyk          #+#    #+#             */
-/*   Updated: 2023/02/20 17:35:52 by aplotnyk         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:44:16 by aplotnyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ the value of the parameter ’content’. The variable
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*nnode;
-	
+
 	nnode = malloc(sizeof(t_list));
 	if (!nnode)
 		return (NULL);
